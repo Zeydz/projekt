@@ -1,0 +1,13 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50" width="175" height="70">
+	<title>Websitelogo</title>
+	<defs>
+		<image  width="40" height="33" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAhCAMAAACcLxmXAAAAAXNSR0IB2cksfwAAAGlQTFRFAAAA////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGehQCAAAACN0Uk5T/wD+5fH1BuMD4SAAJP0XE+sFDRkPHCcjHywhJQsa/BT4DCkhBbTvAAAAzUlEQVR4nJ3UZxODIAwG4De02mH3tMuO//8jK1gKQdaZLx7kIclxnAAoI6Ai7QTypHYpOQKy5BjIkgWQI0vXBWQ56Tlg6nEzjwPmDqsWxdILseJuvRHCD7G14S6AVOyNO7RLESyJo3YntQzMKOPczVfLcrHewKVq3VX25fv6rUXj1ioKSjPfnTqYqvkgDaNS1GRgRDZPyoP6VaVbYwiMup8cBN0T9Oq+bw2tg7zQp7EyHJLteAmTYzfKr5fB/9O2FzZ0ncwS9SRSvz6d/gI99gUS28Q9ZAAAAABJRU5ErkJggg=="/>
+		<image  width="1" height="39" id="img2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAnBAMAAAA8zj+RAAAAAXNSR0IB2cksfwAAAA9QTFRFAAAAAAAAAAAAAAAAAAAATw7njQAAAAV0Uk5Tf/f/+7Ag6eCmAAAAE0lEQVR4nGNgYBBgUKAKNGBwAACwbgThLZh5IQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		.s0 { fill: #000000 } 
+	</style>
+	<use id="logo thing 2" href="#img1" x="6" y="10"/>
+	<use id="Layer 3" href="#img2" x="53" y="7"/>
+	<path id="J O C K E" class="s0" aria-label="J O C K E"  d="m63.6 39.5q-1.9 0-3.5-0.6-1.7-0.6-2.8-1.6v-5.8h4.8v0.3q0 1.8 1.3 1.8 0.6 0 0.9-0.5 0.4-0.5 0.4-1.5v-12.9h-2.2v-5.4h10.1v5.4h-1.2v11.1q0 4.9-2.1 7.3-2 2.4-5.7 2.4zm19.6 0q-4.4 0-6.8-3.2-2.4-3.2-2.4-10.1 0-7 2.4-10.2 2.4-3.1 6.8-3.1 4.4 0 6.8 3.1 2.4 3.2 2.4 10.2 0 6.9-2.4 10.1-2.4 3.2-6.8 3.2zm0-5.9q0.8 0 1.2-0.6 0.5-0.6 0.5-1.9v-9.9q0-1.3-0.5-1.9-0.4-0.6-1.2-0.6-0.8 0-1.2 0.6-0.4 0.6-0.4 1.9v9.9q0 1.3 0.4 1.9 0.4 0.6 1.2 0.6zm20 5.9q-4.5 0-7-3.2-2.5-3.2-2.5-10.1 0-13.3 9.5-13.3 2.3 0 4.2 0.7 2 0.8 2.9 1.7v8.3h-5.7v-2.4q0-1.3-0.4-1.9-0.5-0.6-1.3-0.6-0.8 0-1.2 0.6-0.4 0.6-0.4 1.9v9.9q0 1.3 0.4 1.9 0.4 0.6 1.2 0.6 0.8 0 1.3-0.6 0.4-0.6 0.4-1.9v-2.6h5.7v8.5q-0.9 0.9-2.9 1.7-1.9 0.8-4.2 0.8zm22.6-16.2l4.1 10.3h1.2v5.4h-6.5l-3.7-10.2-1.1 1.2v3.6h1.2v5.4h-9.1v-5.4h1.2v-14.9h-1.2v-5.4h9.1v5.4h-1.2v4.4l3.8-4.4h-1.5v-5.4h8.9v5.4h-1.2zm23.1 15.7h-16.2v-5.4h1.2v-14.8h-1.2v-5.4h16.2v9.9h-5.4v-4.5h-2.9v5.2h2.1v3.8h-2.1v5.8h2.9v-5.2h5.4z"/>
+</svg>

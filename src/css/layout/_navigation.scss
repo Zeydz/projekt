@@ -1,0 +1,134 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+/* Sidebar */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: variables.$sidebar-color;
+  padding: 10px 14px;
+
+  .menu-bar {
+    height: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .mode {
+      background-color: variables.$body-color;
+      border-radius: 20px;
+
+      .toggle-switch {
+        @include mixins.flex();
+        justify-content: center;
+        height: 100%;
+        min-width: 60px;
+        cursor: pointer;
+        .switch {
+          position: relative;
+          height: 22px;
+          width: 44px;
+          border-radius: 25px;
+          background-color: variables.$toggle-color;
+        }
+        .switch::before {
+          content: "";
+          position: absolute;
+          height: 15px;
+          width: 15px;
+          border-radius: 50%;
+          top: 50%;
+          left: 5px;
+          transform: translateY(-50%);
+          transition: all 0.3s ease;
+          background-color: variables.$sidebar-color;
+        }
+      }
+
+      i {
+        position: absolute;
+      }
+
+      i.sun {
+        opacity: 0;
+      }
+      .moon-sun {
+        height: 50px;
+        width: 60px;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  header {
+    position: relative;
+    .toggle {
+      position: absolute;
+      top: 50%;
+      right: -25px;
+      transform: translateY(-50%);
+      height: 25px;
+      width: 25px;
+      background-color: variables.$primary-color;
+      @include mixins.flex();
+      justify-content: center;
+      border-radius: 50%;
+      color: variables.$sidebar-color;
+      font-size: 20px;
+      padding: 15px;
+    }
+  }
+  li {
+    height: 50px;
+
+    margin-top: 10px;
+    list-style: none;
+    @include mixins.flex();
+
+    a {
+      font-size: 18px;
+      font-weight: 700;
+      height: 100%;
+      width: 100%;
+      text-decoration: none;
+      color: variables.$text-color;
+      border-radius: 6px;
+      @include mixins.flex();
+      transition: all 0.4s ease;
+    }
+    a:hover {
+      background-color: variables.$primary-color;
+      color: variables.$sidebar-color;
+    }
+
+    a:hover .icon {
+      color: white;
+    }
+    .icon {
+      @include mixins.flex();
+      justify-content: center;
+      min-width: 60px;
+      font-size: 20px;
+      color: variables.$text-color;
+    }
+  }
+
+  .image {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .image-text {
+    width: 40px;
+  }
+}
+
+
+body.dark .switch::before {
+  left: 25px !important;
+}

@@ -1,0 +1,6 @@
+@use "../abstracts/variables";
+
+body {
+    height: 100vh;
+    background-color: variables.$body-color;
+}

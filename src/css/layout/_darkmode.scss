@@ -1,0 +1,17 @@
+@use "../abstracts/variables";
+
+body.dark {
+background-color: #121212;
+    .sidebar {
+        background-color: #000000;
+        .mode {
+            background-color: #111111;
+            color: white;
+        }
+        i, a {
+            color: white;
+        }
+
+    }
+  }
+  
