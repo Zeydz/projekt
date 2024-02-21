@@ -10,7 +10,15 @@
   width: 250px;
   background-color: variables.$sidebar-color;
   padding: 10px 14px;
+  transition: all 0.5s ease;
+  
+  /* Texten i navigationen */
+  .text {
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
 
+  /* Hålla navigationen stängd */
   .menu-bar {
     height: calc(100% - 70px);
     display: flex;
@@ -18,10 +26,14 @@
     justify-content: space-between;
 
     .mode {
+      
+      position: relative;
       background-color: variables.$body-color;
       border-radius: 20px;
 
       .toggle-switch {
+        position: absolute;
+        right: 0px;
         @include mixins.flex();
         justify-content: center;
         height: 100%;
@@ -90,7 +102,7 @@
     @include mixins.flex();
 
     a {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       height: 100%;
       width: 100%;
@@ -131,4 +143,12 @@
 
 body.dark .switch::before {
   left: 25px !important;
+}
+
+
+.sidebar.close {
+  width: 88px;
+  .text {
+    opacity: 0;
+  }
 }

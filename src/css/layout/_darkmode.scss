@@ -1,17 +1,36 @@
 @use "../abstracts/variables";
 
 body.dark {
-background-color: #121212;
-    .sidebar {
-        background-color: #000000;
-        .mode {
-            background-color: #111111;
-            color: white;
-        }
-        i, a {
-            color: white;
-        }
+  background-color: variables.$dbody-color;
+  .sidebar {
+    background-color: variables.$dsidebar-color;
 
+    header .toggle {
+        background-color: variables.$dprimary-color;
+    }
+
+
+
+
+    .mode {
+      background-color: variables.$dtoggle-color;
+      color: variables.$dtext-color;
+    }
+    i,
+    a {
+      color: variables.$dtext-color;
+    }
+
+    li {
+      a:hover {
+        background-color: rgb(44, 44, 44);
+      }
     }
   }
-  
+}
+/* Animation */
+body {
+  transition: all 0.2s ease;
+  height: 100vh;
+  background-color: variables.$body-color;
+}
