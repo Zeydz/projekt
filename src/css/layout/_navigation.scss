@@ -11,6 +11,7 @@
   background-color: variables.$sidebar-color;
   padding: 10px 14px;
   transition: all 0.5s ease;
+  z-index: 1;
 
   /* Texten i navigationen */
   .text {
@@ -171,3 +172,4 @@ body.dark {
     }
   }
 }
+

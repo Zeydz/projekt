@@ -1,17 +1,21 @@
 @use "../abstracts/variables";
 
-body.dark {
+body.dark{
   background-color: variables.$dbody-color;
+
+  .home {
+    background-color: variables.$dbody-color;
+    
+    .text {
+      color: variables.$dtext-color;
+    }
+  }
   .sidebar {
     background-color: variables.$dsidebar-color;
 
     header .toggle {
         background-color: variables.$dprimary-color;
     }
-
-
-
-
     .mode {
       background-color: variables.$dtoggle-color;
       color: variables.$dtext-color;

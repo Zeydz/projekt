@@ -1,0 +1,21 @@
+@use "../abstracts/variables";
+
+.home {
+    position: relative;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background-color: variables.$body-color;
+    transition: all 0.5s ease;
+    .text {
+        font-size: 30px;
+        font-weight: 500;
+        color: variables.$text-color;
+        padding: 23px 40px;
+    }
+  }
+
+  .sidebar.close ~ .home {
+    left: 88px;
+    width: calc(100% - 88px);
+  }
