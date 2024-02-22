@@ -11,7 +11,7 @@
   background-color: variables.$sidebar-color;
   padding: 10px 14px;
   transition: all 0.5s ease;
-  
+
   /* Texten i navigationen */
   .text {
     transition: all 0.3s ease;
@@ -26,7 +26,6 @@
     justify-content: space-between;
 
     .mode {
-      
       position: relative;
       background-color: variables.$body-color;
       border-radius: 20px;
@@ -62,6 +61,7 @@
 
       i {
         position: absolute;
+        transition: all 0.3s ease;
       }
 
       i.sun {
@@ -82,7 +82,7 @@
       position: absolute;
       top: 50%;
       right: -25px;
-      transform: translateY(-50%);
+
       height: 25px;
       width: 25px;
       background-color: variables.$primary-color;
@@ -92,6 +92,8 @@
       color: variables.$sidebar-color;
       font-size: 20px;
       padding: 15px;
+      cursor: pointer;
+      transform: translateY(-50%) rotate(180deg);
     }
   }
   li {
@@ -140,15 +142,32 @@
   }
 }
 
-
-body.dark .switch::before {
-  left: 25px !important;
+/* Ändra toggleknapp & måne/sol beroende på läge */
+body.dark {
+  .switch::before {
+    left: 25px !important;
+  }
+  .menu-bar {
+    .mode {
+      i.sun {
+        opacity: 1;
+      }
+      i.moon {
+        opacity: 0;
+      }
+    }
+  }
 }
 
-
+/* Ändra pil/chevron. */
 .sidebar.close {
   width: 88px;
   .text {
     opacity: 0;
+  }
+  header {
+    .toggle {
+      transform: translateY(-50%);
+    }
   }
 }
