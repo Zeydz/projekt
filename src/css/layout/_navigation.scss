@@ -76,14 +76,12 @@
       }
     }
   }
-
   header {
     position: relative;
     .toggle {
       position: absolute;
       top: 50%;
       right: -25px;
-
       height: 25px;
       width: 25px;
       background-color: variables.$primary-color;
@@ -123,13 +121,14 @@
     a:hover .icon {
       color: white;
     }
-    .icon {
+    .icon, .celsius {
       @include mixins.flex();
       justify-content: center;
       min-width: 60px;
       font-size: 20px;
       color: variables.$text-color;
     }
+ 
   }
 
   .image {
@@ -173,3 +172,6 @@ body.dark {
   }
 }
 
+.celsius {
+  font-weight: 500;
+}

@@ -8,7 +8,15 @@
     <script src="js/map.js" type="module"></script>
     <script src="js/weather.js" type="module"></script>
     <link rel="stylesheet" href="css/main.scss">
+    <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/b2fa88793a.js" crossorigin="anonymous"></script>
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
 </head>
 <body>
     <nav class="sidebar close">
@@ -38,6 +46,10 @@
                 </ul>
             </div>
             <div class="bottom-content">
+                <li class="nav-link" id="celsside">
+                    
+                </li>
+
                 <li class="mode">
                     <div class="moon-sun">
                         <i class="fa-solid fa-sun icon sun"></i>
@@ -53,6 +65,12 @@
     </nav>
     <section class="home">
         <div class="text">Startsida</div>
+            <div id="map"></div>
+            <div class="searchfield">
+                <label for="searchInp">Vilken plats vill du söka efter?</label><br>
+                <input type="text" name="search" id="searchInp"><br>
+                <button id="searchBtn">SÖK</button>
+            </div>
     </section>
 </body>
 </html>

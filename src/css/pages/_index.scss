@@ -19,3 +19,35 @@
     left: 88px;
     width: calc(100% - 88px);
   }
+
+  /* Leaflet */
+
+  #map { height: 500px; width: 500px; margin: 5em auto; }
+
+  .searchfield {
+    margin: auto;
+    width: 80%;
+    text-align: center;
+
+    label {
+      font-size: 20px;
+    }
+
+    input {
+      margin-top: 10px;
+      width: 300px;
+      border-radius: 10px;
+      height: 30px;
+      border: none;
+      padding: 10px;
+      text-align: center;
+    }
+    button {
+      margin-top: 30px;
+      width: 150px;
+      height: 50px;
+      font-weight: 700;
+      border-radius: 15px;
+      border: none;
+    }
+  }

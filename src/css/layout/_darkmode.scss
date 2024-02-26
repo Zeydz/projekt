@@ -21,7 +21,7 @@ body.dark{
       color: variables.$dtext-color;
     }
     i,
-    a {
+    a, .celsius {
       color: variables.$dtext-color;
     }
 
@@ -37,4 +37,8 @@ body {
   transition: all 0.2s ease;
   height: 100vh;
   background-color: variables.$body-color;
+}
+
+label {
+  color: white;
 }
