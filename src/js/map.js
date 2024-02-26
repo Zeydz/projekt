@@ -2,10 +2,6 @@
 
 /* Denna fil fetchar data från nominatim openstreetmap för att på så sätt visa en karta med value från input-fältet. */
 
-import {latitude} from "./weather.js";
-
-console.log(latitude);
-
 window.onload = getLocation();
 
 function getLocation() {

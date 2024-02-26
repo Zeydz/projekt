@@ -1,17 +1,18 @@
 "use strict";
 
 /* Ladda getLocation direkt vid besök på webbplatsen */
-window.onload = getLocation;
+window.onload = getLocation();
 
-let latitude, longitude;
+
 /* Fråga om plats genom getLocation, behövs för att skicka lat & long till getWeather */
 function getLocation() {
   /* Tar datan, i detta fall koordinater */
   function successCallback(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
 
     getWeather(latitude, longitude);
+    showCurrentLocation(latitude, longitude);
   }
 
   /* Denna funktion anropas om det blir error. */
@@ -21,13 +22,11 @@ function getLocation() {
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 }
 
-export {latitude, longitude};
-
 /* Fetcha väder */
 async function getWeather(lat, long) {
   try {
     let response = await fetch(
-      `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${long}&apikey=T8QHUJD8PXwsm1dSaig8GEE0Q6M8et2`
+      `https://api.tomorrow.io/v4/weather/forecast?location=${lat},${long}&apikey=T8QHUJD8PXwsm1dSaig8GEE0Q6M8et2u`
     );
     let data = await response.json();
 
@@ -46,7 +45,7 @@ function displayWeather(data) {
     let sideBarWeatherEl = document.getElementById("celsside");
 
 
-   sideBarWeatherEl.innerHTML += `
+   sideBarWeatherEl.innerHTML = `
    <span class="textcelsius nav-text celsius">${Math.round(daily[0].values.temperatureAvg)}&#8451</span><br>`
 
 /*     daily.forEach(day => {
@@ -58,7 +57,55 @@ function displayWeather(data) {
         
         </article>
         `;
-    }); */
-    console.log(data.timelines.daily);
+    });*/
+    console.log(data.timelines.daily); 
 }
 
+/* Karta */
+
+/* Hämtar sökknappen samt skapar en eventlistenet för värdet på input. Skickar med value till nästa funktion */
+const searchBtn = document.getElementById("searchBtn");
+
+searchBtn.addEventListener("click", function () {
+  const searchInp = document.getElementById("searchInp").value;
+  getData(searchInp);
+});
+
+/* Fetchar data med value från eventlistener. Skickar data till cordMap. */
+async function getData(searchVal) {
+  try {
+    /* Fetchar data från openstreetmap, med value från input */
+    const response = await fetch(
+      "https://nominatim.openstreetmap.org/search?addressdetails=1&q=" +
+        searchVal +
+        "&format=jsonv2&limit=1"
+    );
+    let data = await response.json();
+
+    /* Tar longitude och latitude */
+    let lon = data[0].lon;
+    let lat = data[0].lat;
+
+    showCurrentLocation(lat, lon);
+    getWeather(lat, lon);
+  } catch (error) {
+    console.error("Kunde inte fetcha, följande felmeddelande skapades:", error);
+  }
+}
+
+/* Visa karta vid inladdning */
+var map = L.map("map").setView([51.505, -0.09], 13);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(map);
+
+/* Skapar markör */
+let marker = L.marker([62.39264256963892, 17.284794169579705]).addTo(map);
+
+/* Visa karta med position nuvarande position vid inladdning, eller position från input */
+function showCurrentLocation(latitude, longitude) {
+  map.setView([latitude, longitude], 12);
+  marker.setLatLng([latitude, longitude]);
+}
