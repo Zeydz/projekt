@@ -31,6 +31,15 @@ body.dark{
       }
     }
   }
+  label {
+    color: white;
+  }
+  input {
+    border: none;
+  }
+  button {
+    border: none;
+  }
 }
 /* Animation */
 body {
@@ -39,6 +48,4 @@ body {
   background-color: variables.$body-color;
 }
 
-label {
-  color: white;
-}
+/* Ändrar labels, input osv */

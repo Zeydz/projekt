@@ -3,18 +3,13 @@
 /* Ladda getLocation direkt vid besök på webbplatsen */
 window.onload = getLocation;
 
-
+let latitude, longitude;
 /* Fråga om plats genom getLocation, behövs för att skicka lat & long till getWeather */
-
-
-
-
-
 function getLocation() {
   /* Tar datan, i detta fall koordinater */
   function successCallback(position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
 
     getWeather(latitude, longitude);
   }
@@ -25,6 +20,8 @@ function getLocation() {
   }
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 }
+
+export {latitude, longitude};
 
 /* Fetcha väder */
 async function getWeather(lat, long) {
@@ -52,7 +49,7 @@ function displayWeather(data) {
    sideBarWeatherEl.innerHTML += `
    <span class="textcelsius nav-text celsius">${Math.round(daily[0].values.temperatureAvg)}&#8451</span><br>`
 
-    daily.forEach(day => {
+/*     daily.forEach(day => {
         console.log(day.values.temperatureAvg);
 
         weatherEl.innerHTML += `
@@ -61,7 +58,7 @@ function displayWeather(data) {
         
         </article>
         `;
-    });
+    }); */
     console.log(data.timelines.daily);
 }
 

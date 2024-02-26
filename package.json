@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "Projektuppgift i front-end",
   "source": "src/index.html",
+  "type": "module",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
   },
   "author": "",
   "license": "ISC",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.11.0",
     "parcel": "^2.11.0",
