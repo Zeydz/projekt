@@ -3,7 +3,6 @@
 /* Ladda getLocation direkt vid besök på webbplatsen */
 window.onload = getLocation();
 
-
 /* Fråga om plats genom getLocation, behövs för att skicka lat & long till getWeather */
 function getLocation() {
   /* Tar datan, i detta fall koordinater */
@@ -30,25 +29,30 @@ async function getWeather(lat, long) {
     );
     let data = await response.json();
 
+    /* Kallar på funktion för att visa temperatur i navigationsmeny */
     displayWeather(data);
-    
+
+    /* Returnerar data till getData*/
+    return data;
+
+    /* Catch error */
   } catch (error) {
     console.log("Gick inte att fetcha:" + error);
+    throw error;
   }
 }
 
-
+/* Gör så att temperatur visas i navigationsmenyn. */
 function displayWeather(data) {
+  let daily = data.timelines.daily;
+  let sideBarWeatherEl = document.getElementById("celsside");
 
-    let daily = data.timelines.daily;
-    let weatherEl = document.getElementById("weather");
-    let sideBarWeatherEl = document.getElementById("celsside");
+  sideBarWeatherEl.innerHTML = `
+   <span class="textcelsius nav-text celsius">${Math.round(
+     daily[0].values.temperatureAvg
+   )}&#8451</span><br>`;
 
-
-   sideBarWeatherEl.innerHTML = `
-   <span class="textcelsius nav-text celsius">${Math.round(daily[0].values.temperatureAvg)}&#8451</span><br>`
-
-/*     daily.forEach(day => {
+  /*     daily.forEach(day => {
         console.log(day.values.temperatureAvg);
 
         weatherEl.innerHTML += `
@@ -58,7 +62,8 @@ function displayWeather(data) {
         </article>
         `;
     });*/
-    console.log(data.timelines.daily); 
+
+  console.log(data.timelines.daily);
 }
 
 /* Karta */
@@ -71,7 +76,7 @@ searchBtn.addEventListener("click", function () {
   getData(searchInp);
 });
 
-/* Fetchar data med value från eventlistener. Skickar data till cordMap. */
+/* Fetchar data med value från eventlistener. Skickar data till showCurrentLocation. Gör även så att popupcontent skapas på vald stad.*/
 async function getData(searchVal) {
   try {
     /* Fetchar data från openstreetmap, med value från input */
@@ -85,9 +90,21 @@ async function getData(searchVal) {
     /* Tar longitude och latitude */
     let lon = data[0].lon;
     let lat = data[0].lat;
+    let name = data[0].name;
 
+    /* Variabel för att kalla på funktion */
+    let weatherData = await getWeather(lat, lon, name);
+
+    /* Kallar på funktion när variabel används */
+    let popupContent = `<b>${name}</b><br>Temperature: ${Math.round(
+      weatherData.timelines.daily[0].values.temperatureAvg
+    )}&#8451`;
+
+    /* Skapar popup med vald data. */
+    marker.bindPopup(popupContent).openPopup();
+
+    /* Kallar på showCurrentLocation */
     showCurrentLocation(lat, lon);
-    getWeather(lat, lon);
   } catch (error) {
     console.error("Kunde inte fetcha, följande felmeddelande skapades:", error);
   }
@@ -103,6 +120,9 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 /* Skapar markör */
 let marker = L.marker([62.39264256963892, 17.284794169579705]).addTo(map);
+
+/* map control, hitta din plats */
+L.control.locate().addTo(map);
 
 /* Visa karta med position nuvarande position vid inladdning, eller position från input */
 function showCurrentLocation(latitude, longitude) {
