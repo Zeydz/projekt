@@ -96,7 +96,7 @@ async function getData(searchVal) {
     let weatherData = await getWeather(lat, lon, name);
 
     /* Kallar på funktion när variabel används */
-    let popupContent = `<b>${name}</b><br>Temperature: ${Math.round(
+    let popupContent = `<b>${name}</b><br>Temperatur: ${Math.round(
       weatherData.timelines.daily[0].values.temperatureAvg
     )}&#8451`;
 

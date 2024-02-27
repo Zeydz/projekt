@@ -37,8 +37,18 @@ body.dark{
   input {
     border: none;
   }
+  input:hover {
+    box-shadow: 0 0 10px rgba(201, 201, 201, 0.5);
+  }
   button {
     border: none;
+  }
+  button:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  #map:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
   }
 }
 /* Animation */
