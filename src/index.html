@@ -6,7 +6,6 @@
     <title>Projektuppgift</title>
     <script src="js/design.js" type="module"></script>
     <!-- <script src="js/map.js" type="module"></script> -->
-    <script src="js/weather.js" type="module"></script>
     <link rel="stylesheet" href="css/main.scss">
 
 
@@ -67,6 +66,7 @@
     <section class="home">
         <div class="text">Startsida</div>
         <div id="map"></div>
+        <div id="loadingSpinner" class="spinner"></div>
         <div class="searchfield">
             <label for="searchInp">Vilken plats vill du söka efter?</label><br>
             <input type="text" name="search" id="searchInp"><br>
@@ -75,4 +75,5 @@
     </section>
 </body>
 <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+<script src="js/weather.js" type="module"></script>
 </html>

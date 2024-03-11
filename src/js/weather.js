@@ -42,6 +42,9 @@ async function getWeather(lat, long) {
   }
 }
 
+
+
+
 /* Gör så att temperatur visas i navigationsmenyn. */
 function displayWeather(data) {
   let daily = data.timelines.daily;
@@ -66,6 +69,7 @@ searchBtn.addEventListener("click", function () {
 /* Fetchar data med value från eventlistener. Skickar data till showCurrentLocation. Gör även så att popupcontent skapas på vald stad.*/
 async function getData(searchVal) {
   try {
+    showLoadingSpinner();
     /* Fetchar data från openstreetmap, med value från input */
     const response = await fetch(
       "https://nominatim.openstreetmap.org/search?addressdetails=1&q=" +
@@ -90,10 +94,22 @@ async function getData(searchVal) {
 
     /* Kallar på showCurrentLocation */
     showCurrentLocation(lat, lon);
+    hideLoadingSpinner();
   } catch (error) {
     console.error("Kunde inte fetcha, följande felmeddelande skapades:", error);
+    hideLoadingSpinner();
   }
 }
+
+/* Laddningsanimation som visar spinnern */
+function showLoadingSpinner() {
+  document.getElementById('loadingSpinner').style.display = 'block';
+}
+/* Laddningsanimation som gömmer spinnern */
+function hideLoadingSpinner() {
+  document.getElementById('loadingSpinner').style.display = 'none';
+}
+
 
 /* Visa karta vid inladdning */
 var map = L.map("map").setView([51.505, -0.09], 13);
