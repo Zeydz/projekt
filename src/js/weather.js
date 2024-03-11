@@ -51,19 +51,6 @@ function displayWeather(data) {
    <span class="textcelsius nav-text celsius">${Math.round(
      daily[0].values.temperatureAvg
    )}&#8451</span><br>`;
-
-  /*     daily.forEach(day => {
-        console.log(day.values.temperatureAvg);
-
-        weatherEl.innerHTML += `
-        <article>
-        <p>Medeltemperatur: ${day.values.temperatureAvg}&#8451</p>
-        
-        </article>
-        `;
-    });*/
-
-  console.log(data.timelines.daily);
 }
 
 /* Karta */
