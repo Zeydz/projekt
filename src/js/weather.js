@@ -41,10 +41,6 @@ async function getWeather(lat, long) {
     throw error;
   }
 }
-
-
-
-
 /* Gör så att temperatur visas i navigationsmenyn. */
 function displayWeather(data) {
   let daily = data.timelines.daily;
