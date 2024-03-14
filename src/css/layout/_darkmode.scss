@@ -1,61 +1,78 @@
 @use "../abstracts/variables";
 
-body.dark{
+body.dark {
   background-color: variables.$dbody-color;
 
+  // Stil för startsidan i dark mode
   .home {
     background-color: variables.$dbody-color;
-    
+
+    // Stil för texten på startsidan i dark mode
     .text {
       color: variables.$dtext-color;
     }
   }
+
+  // Stil för sidofältet i dark mode
   .sidebar {
     background-color: variables.$dsidebar-color;
 
+    // Stil för toggle-ikonen i sidofältet i dark mode
     header .toggle {
-        background-color: variables.$dprimary-color;
+      background-color: variables.$dprimary-color;
     }
+
+    // Stil för temaläget i sidofältet i dark mode
     .mode {
       background-color: variables.$dtoggle-color;
       color: variables.$dtext-color;
     }
+
+    // Stil för ikoner, länkar och celsius i sidofältet i dark mode
     i,
-    a, .celsius {
+    a,
+    .celsius {
       color: variables.$dtext-color;
     }
 
+    // Stil för länkar i listan i sidofältet i dark mode
     li {
       a:hover {
         background-color: rgb(44, 44, 44);
       }
     }
   }
+
+  // Styling på karta och knappar i dark mode
   label {
     color: white;
   }
+
   input {
     border: none;
-  }
-  input:hover {
-    box-shadow: 0 0 10px rgba(201, 201, 201, 0.5);
-  }
-  button {
-    border: none;
-  }
-  button:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(201, 201, 201, 0.5);
+    }
   }
 
+  button {
+    border: none;
+
+    &:hover {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  // Stil för kartan vid hover i dark mode
   #map:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
   }
 }
-/* Animation */
+
+/* Animation så att allting flyter in vid besök */
 body {
   transition: all 0.2s ease;
   height: 100vh;
   background-color: variables.$body-color;
 }
-
-/* Ändrar labels, input osv */

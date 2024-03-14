@@ -13,7 +13,6 @@ function getLocation() {
     getWeather(latitude, longitude);
     showCurrentLocation(latitude, longitude);
   }
-
   /* Denna funktion anropas om det blir error. */
   function errorCallback(error) {
     console.error(error);
@@ -53,7 +52,6 @@ function displayWeather(data) {
 }
 
 /* Karta */
-
 /* Hämtar sökknappen samt skapar en eventlistenet för värdet på input. Skickar med value till nästa funktion */
 const searchBtn = document.getElementById("searchBtn");
 
@@ -105,7 +103,6 @@ function showLoadingSpinner() {
 function hideLoadingSpinner() {
   document.getElementById('loadingSpinner').style.display = 'none';
 }
-
 
 /* Visa karta vid inladdning */
 var map = L.map("map").setView([51.505, -0.09], 13);
