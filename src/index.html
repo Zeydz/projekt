@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projektuppgift</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="pics/logo-footer.png?as=avif">
     <script src="js/design.js" type="module"></script>
-    <!-- <script src="js/map.js" type="module"></script> -->
     <link rel="stylesheet" href="css/main.scss">
-
-
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/b2fa88793a.js" crossorigin="anonymous"></script>
     <!-- Leaflet -->
@@ -46,20 +45,19 @@
                 </ul>
             </div>
             <div class="bottom-content">
-                <li class="nav-link" id="celsside">
-
-                </li>
-
-                <li class="mode">
-                    <div class="moon-sun">
-                        <i class="fa-solid fa-sun icon sun"></i>
-                        <i class="fa-solid fa-moon icon moon"></i>
-                    </div>
-                    <span class="mode-text text">Dark Mode</span>
-                    <div class="toggle-switch">
-                        <span class="switch"></span>
-                    </div>
-                </li>
+                <ul>
+                    <li class="nav-link" id="celsside"></li>
+                    <li class="mode">
+                        <div class="moon-sun">
+                            <i class="fa-solid fa-sun icon sun"></i>
+                            <i class="fa-solid fa-moon icon moon"></i>
+                        </div>
+                        <span class="mode-text text">Dark Mode</span>
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -73,7 +71,8 @@
             <button id="searchBtn">SÖK</button>
         </div>
     </section>
+    <!-- Script-taggar -->
+    <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+    <script src="js/weather.js" type="module"></script>
 </body>
-<script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
-<script src="js/weather.js" type="module"></script>
 </html>

@@ -1,7 +1,7 @@
 @use "../abstracts/variables";
 @use "../abstracts/mixins";
-/* Sidebar */
 
+//Sidonavigatonsmenyn
 .sidebar {
   position: fixed;
   top: 0;
@@ -13,19 +13,18 @@
   transition: all 0.5s ease;
   z-index: 1;
 
-  /* Texten i navigationen */
   .text {
     transition: all 0.3s ease;
     white-space: nowrap;
   }
 
-  /* Hålla navigationen stängd */
   .menu-bar {
     height: calc(100% - 70px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
+    //Darkmode knapp
     .mode {
       position: relative;
       background-color: variables.$body-color;
@@ -39,35 +38,38 @@
         height: 100%;
         min-width: 60px;
         cursor: pointer;
+
         .switch {
           position: relative;
           height: 22px;
           width: 44px;
           border-radius: 25px;
           background-color: variables.$toggle-color;
-        }
-        .switch::before {
-          content: "";
-          position: absolute;
-          height: 15px;
-          width: 15px;
-          border-radius: 50%;
-          top: 50%;
-          left: 5px;
-          transform: translateY(-50%);
-          transition: all 0.3s ease;
-          background-color: variables.$sidebar-color;
+
+          &::before {
+            content: "";
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+            background-color: variables.$sidebar-color;
+          }
         }
       }
-
+      //Ikoner
       i {
         position: absolute;
         transition: all 0.3s ease;
       }
-
+      //Solikonen
       i.sun {
         opacity: 0;
       }
+      //Båda ikonerna
       .moon-sun {
         height: 50px;
         width: 60px;
@@ -76,8 +78,10 @@
       }
     }
   }
+  //Knapp för att utöka menyn
   header {
     position: relative;
+
     .toggle {
       position: absolute;
       top: 50%;
@@ -95,9 +99,9 @@
       transform: translateY(-50%) rotate(180deg);
     }
   }
+  /* Texten i listan/navigationen */
   li {
     height: 50px;
-
     margin-top: 10px;
     list-style: none;
     @include mixins.flex();
@@ -113,6 +117,7 @@
       @include mixins.flex();
       transition: all 0.4s ease;
     }
+
     a:hover {
       background-color: variables.$primary-color;
       color: variables.$sidebar-color;
@@ -121,6 +126,7 @@
     a:hover .icon {
       color: white;
     }
+    //Styling för celsius
     .icon, .celsius {
       @include mixins.flex();
       justify-content: center;
@@ -128,9 +134,8 @@
       font-size: 20px;
       color: variables.$text-color;
     }
- 
   }
-
+  //Styling för ikon/logotyp
   .image {
     min-width: 60px;
     display: flex;
@@ -141,17 +146,18 @@
     width: 40px;
   }
 }
-
-/* Ändra toggleknapp & måne/sol beroende på läge */
+//Lite darkmode detaljer i navmenyn
 body.dark {
   .switch::before {
     left: 25px !important;
   }
+
   .menu-bar {
     .mode {
       i.sun {
         opacity: 1;
       }
+
       i.moon {
         opacity: 0;
       }
@@ -159,12 +165,13 @@ body.dark {
   }
 }
 
-/* Ändra pil/chevron. */
 .sidebar.close {
   width: 88px;
+
   .text {
     opacity: 0;
   }
+
   header {
     .toggle {
       transform: translateY(-50%);

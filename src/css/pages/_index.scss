@@ -1,5 +1,6 @@
 @use "../abstracts/variables";
 
+//Styling för huvudinnehållet
 .home {
   position: relative;
   left: 250px;
@@ -20,8 +21,7 @@
   width: calc(100% - 88px);
 }
 
-/* Leaflet */
-
+//Leaflet
 #map {
   height: 500px;
   width: 80%;
@@ -73,7 +73,7 @@
     color: white;
   }
 }
-
+//Ändra storlek på input vid mindre enheter
 @media (max-width: 500px) {
   input {
     width: 200px !important;
